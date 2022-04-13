@@ -8,10 +8,11 @@
 
 
 :root {
+ --fs-pbody: 0.85rem;
     --fs-body: 1.25rem;
     --fs-mbody: 1rem;
     --fs-h2: 2rem;
-    --fs-hm2: 1.75rem;
+    --fs-hm2: 1.7rem;
 
     --fs-h1: 3rem;
     --fs-hm1: 2rem;
@@ -47,17 +48,19 @@ html {
 }
 
 #cross {
+    margin-top: 7px;
+    margin-right: 20px;
     width: 50px;
     height: 50px;
     cursor: pointer;
 }
 
 .navUl {
-    height: 60vh;
+    height: 80vh;
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -89,6 +92,10 @@ html {
 .hamBurger img {
     width: 40px;
     cursor: pointer;
+    margin-right: 10px;
+    width: 40px;
+    cursor: pointer;
+    margin-top: 2px;
 }
 
 /* Section Name and Profile Picture */
@@ -152,11 +159,15 @@ html {
 
 #mailLink {
     display: flex;
+    transition: all 0.5s ease-in-out;
 }
 
 #mailLink img {
     width: 15px;
     padding: 2px;
+}
+#mailLink:hover{
+    transform: scale(1.2);
 }
 
 #name {
@@ -221,7 +232,76 @@ html {
 
 }
 
+.btnContainer {
+    padding: 5px 20px;
+    width: 300px;
+    height: fit-content;
+    display: flex;
+}
+
+.button {
+    text-decoration: none;
+    color: white;
+}
+
+.btn {
+    position: relative;
+    margin: 0px 10px;
+    padding: 5px;
+    /* border-color: rgb(180 4 81); */
+    background-color: #e94272;
+    /* border: 2px solid  rgb(235 210 221); */
+    font-size: var(--fs-mbody);
+
+    /* transition: transform 0.2s; */
+}
+
+/* .btn:hover {
+
+    transform: scale(1.2);
+    background-color:red ;
+    color: black;
+    outline: 2px solid rgb(180 4 81);
+    border: 2px solid white;
+} */
+.btn::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    border: 3px solid #e94272;
+    transition: 0.3s ease-in-out;
+    
+}
+
+.btn:hover::before{
+   top: -5px;
+   left: -5px;
+   bottom: -5px;
+   right: -5px;
+}
+.btnSecondary {
+    background-color: rgb(235 210 221);
+    color: black;
+    padding: 7px;
+    outline: none;
+    border: none;
+    /* font-size: var(--fs-mbody); */
+    transition: all ease-in-out 0.2s;
+    margin: 0px 5px;
+    border-radius: 12px;
+
+}
+
+.btnSecondary:hover {
+    transform: scale(1.1);
+}
+
 .portfolio-items {
+    margin: 20px 0px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -251,17 +331,42 @@ html {
     top: 10vh
 }
 
+.coding-tags{
+    display: flex;
+    padding: 10px;
+    font-family: var(--font-fam);
+    font-size: var(--fs-mbody);
+}
+.code1{
+    padding: 2px 5px;
+    border-right: 3px solid #e94272;
+    margin: 3px;
+}
+.code2{
+    padding: 2px 5px;
+    border-right: 3px solid #e94272;
+    border-left: 3px solid #e94272;
+    margin: 3px;
+}
+.code3{
+    padding: 2px 5px;
+    margin: 3px;
+    border-left: 3px solid #e94272;
+}
+
 .content {
+    margin: 20px 0px;
     padding: 10px;
     width: 43vw;
     height: 70vh;
     display: flex;
     flex-direction: column;
+    /* align-items: center; */
     justify-content: center;
 }
-
-.content h1 {
-    font-size: var(--fs-body);
+.ProjName{
+    font-size: var(--fs-h2);
+    
     padding: 5px 20px;
     font-weight: 900;
     width: fit-content;
@@ -274,8 +379,13 @@ html {
 }
 
 .content p {
-    font-size: var(--fs-body);
+    font-family: var(--font-fam);
+    text-align: justify;
+
+    font-size: var(--fs-mbody);
     padding: 5px 20px;
+    margin-bottom: 0.5em;
+    font-weight: var(--fw--lt);
 }
 
 
@@ -306,6 +416,7 @@ html {
 
 .resume h3 {
     padding-bottom: 20px;
+    text-align: justify;
 }
 
 .resume a {
@@ -316,6 +427,43 @@ html {
     color: black;
 }
 
+.btnContainer2 {
+    display: flex;
+    justify-content: center;
+}
+.bottom{
+    height: 60vh;
+    width: 100%;
+    background-color: #f0d9d9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.iconic{
+    margin-bottom: 50px;
+}
+
+.iconz{
+    width: 50px;
+    height: auto;
+    padding: 2px;
+    margin: 10px;
+    cursor: pointer;
+}
+.copyright{
+    margin-top: 20px;
+    font-size: medium;
+    color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.copyIcon{
+    width: 20px;
+    height: auto;
+    margin: 5px;
+}
 
 @media screen and (max-width: 800px) {
     .intro {
@@ -391,11 +539,19 @@ html {
         height: auto;
     }
 
+    .btnContainer {
+        justify-content: center;
+    }
+    .ProjName{
+        font-size: var(--fs-hm2);
+        text-align: center ;
+    }
     .content {
         padding: 20px 10px;
         width: 100vw;
         height: auto;
         text-align: left;
+        align-items: center;
     }
 
     #img1 {
